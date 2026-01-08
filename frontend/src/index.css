@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap');
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --edge-color: #475569;
+  --handle-color: #6366f1;
+  --node-border: #334155;
+  --node-bg: #1e293b;
+  --node-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* React Flow Customization */
+.react-flow__background {
+  background-color: var(--bg-primary) !important;
+}
+
+.react-flow__node {
+  border-radius: 12px !important;
+  background: var(--node-bg) !important;
+  border: 1px solid var(--node-border) !important;
+  box-shadow: var(--node-shadow) !important;
+  transition: all 0.2s ease !important;
+  padding: 0 !important;
+}
+
+.react-flow__node:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background-color: var(--handle-color) !important;
+  border: 2px solid var(--bg-secondary) !important;
+}
+
+.react-flow__edge-path {
+  stroke: var(--edge-color) !important;
+  stroke-width: 2.5 !important;
+}
+
+/* Node Styles */
+.custom-node {
+  padding: 0;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.node-header {
+  padding: 10px 15px;
+  background: var(--bg-tertiary);
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--node-border);
+}
+
+.node-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.node-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.node-label-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.node-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.node-input, .node-select, .node-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  font-family: var(--font-main);
+}
+
+.node-input:focus, .node-select:focus, .node-textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.node-textarea {
+  resize: none;
+  overflow: hidden;
+  min-height: 40px;
+}
+
+/* Toolbar Styles */
+.toolbar-container {
+  display: flex;
+  gap: 12px;
+  padding: 15px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--node-border);
+  overflow-x: auto;
+}
+
+.draggable-node {
+  padding: 8px 16px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--node-border);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: grab;
+  color: var(--text-primary);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.draggable-node:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+/* Submit Section */
+.submit-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--node-border);
+}
+
+.submit-btn {
+  padding: 12px 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  opacity: 0.95;
+}
