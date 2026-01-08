@@ -54,12 +54,27 @@ def parse_pipeline(pipeline: str = Form(...)):
         num_nodes = len(nodes)
         num_edges = len(edges)
         
+        # Identify connected nodes
+        connected_node_ids = set()
+        for edge in edges:
+            connected_node_ids.add(edge['source'])
+            connected_node_ids.add(edge['target'])
+        
+        # All node IDs
+        all_node_ids = {node['id'] for node in nodes}
+        
+        # Disconnected nodes
+        disconnected_node_ids = list(all_node_ids - connected_node_ids)
+        num_connected = len(connected_node_ids.intersection(all_node_ids))
+        
         dag_status = is_dag(nodes, edges)
         
         return {
             'num_nodes': num_nodes,
             'num_edges': num_edges,
-            'is_dag': dag_status
+            'is_dag': dag_status,
+            'num_connected': num_connected,
+            'disconnected_nodes': disconnected_node_ids
         }
     except Exception as e:
         return {'error': str(e)}, 400
