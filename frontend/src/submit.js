@@ -10,6 +10,7 @@ export const SubmitButton = () => {
     const { nodes, edges } = useStore(selector, shallow);
 
     const handleSubmit = async () => {
+        window.alert('Analyzing Pipeline... Please wait for results.');
         try {
             const formData = new FormData();
             formData.append('pipeline', JSON.stringify({ nodes, edges }));
